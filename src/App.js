@@ -6,7 +6,10 @@ import WeatherCard from './components/WeatherCard/WeatherCard';
 function App() {
   return (
     <div className="App">
-      <WeatherCard/>
+      <WeatherCard temp='12'/>
+      <WeatherCard temp='10'/>
+      <WeatherCard temp='25'/>
+      <WeatherCard temp='40'/>
     </div>
   );
 }
