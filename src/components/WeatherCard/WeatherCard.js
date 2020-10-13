@@ -4,13 +4,14 @@ import Location from './Location';
 import Condition from './Condition';
 
 const WeatherCard = (props) => {
-
-    let highColor = (1 - ((props.temp - 12) / 28)) * 255;
-    let lowColor = highColor - 150;
     
+    let highColor = props.temp > 12 ? (1 - (props.temp - 12) / 28) * 255 : (1 - (props.temp + 20) / 32) * 255;
+    let lowColor = highColor - 150;
+    let bg = `linear-gradient(to top, rgb(0, ${highColor}, 255),rgb(0, ${lowColor}, 255))`;
+   
     const Card = styled.div`
         margin: 0 auto;
-        background: linear-gradient(to bottom, rgb(255, ${highColor}, 0),rgb(255, ${lowColor}, 0), lightblue);
+        background: ${bg};
         width: 200px;
         height: 260px;
         display: flex;
@@ -18,6 +19,8 @@ const WeatherCard = (props) => {
         justify-content: space-around;
         align-items: center;
         border-radius: 15px;
+        float: left;
+        color: white;
     `
 
     return (  
